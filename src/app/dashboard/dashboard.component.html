@@ -1,0 +1,279 @@
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Q/A</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link">
+                    <i class="fa fa-home"></i>
+                    Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"> Calculate Cube Root</a>
+                    <a class="dropdown-item"> Check Palindrome Number</a>
+                    <a class="dropdown-item"> Quick Sort</a>
+                    <a class="dropdown-item"> Bubble Sort</a>
+                    <a class="dropdown-item"> Check Prime Number</a>
+                    <a class="dropdown-item"> Check Armstrong Number</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!---------------------- DROPDOWN------------------ -->
+<div class="container">
+    <div class="about_section layout_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="about_taital"> <span>Select the Question</span></h3>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <div class="dropdown show layout_padding">
+                            <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{activecurrentQues}}
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" *ngFor="let drop of question">
+                                    <div (click)="changequestion(drop)">{{drop}}</div>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <h3 class="about_taital"> <span>{{activecurrentQues}}</span></h3>
+                <div class="about_text">{{selectanswer}}</div>
+                <div class="about_text" *ngIf="cubenumber">
+                    <label>Enter value :</label>
+                    <input type="number" id="cubenum" >
+                    <div><button class="btn btn-outline-success my-2 my-sm-0" (click)="Cube()" type="submit">Submit</button></div>
+                <div class="about_taital">
+                    <h5 class="about_taital"> <br> <span> Answer is : {{cube}} </span></h5>
+                </div>
+                </div>  
+                
+
+                <div class="about_text" *ngIf="palindrone">
+                    <label>Enter value :</label>
+                    <input type="number" id="palindronenumber">
+                    <div><button class="btn btn-outline-success my-2 my-sm-0" (click)="checkPalindrome()" type="submit">Submit</button></div>
+                    <span class="about_taital">
+                        <h5 class="about_taital"> <br> <span> Answer is : {{ans}} </span></h5>
+                    </span>
+                </div>
+
+                <div class="about_text" *ngIf="qs">
+                    <button class="btn btn-outline-success my-2 my-sm-0" (click)="calculate()" type="submit">Apply Quick Sort</button>
+                    <span class="about_taital">
+                        <h5 class="about_taital"> <br> <span> Answer is : {{test}} </span></h5>
+                    </span>
+                </div>
+
+                <div class="about_text" *ngIf="bs">
+                    <button class="btn btn-outline-success my-2 my-sm-0" (click)="bblSort()" type="submit">Apply Bubble Sort</button>
+                    <span class="about_taital">
+                        <h5 class="about_taital"> <br> <span> Answer is : {{test1}} </span></h5>
+                    </span>
+                </div>
+
+
+                <div class="about_text" *ngIf="prime">
+                    <label>Enter value :</label>
+                    <input type="number" id="primenum">
+                    <div><button class="btn btn-outline-success my-2 my-sm-0" (click)="primefunc()" type="submit">Check Prime Num</button></div>
+                    <span class="about_taital">
+                        <h5 class="about_taital">  <br> <span> Answer is : {{ans}} </span></h5>
+                    </span>
+                </div>
+
+                <div class="about_text" *ngIf="armstrong">
+                    <label>Enter value :</label>
+                    <input type="number" id="armstrongnum">
+                    <div><button class="btn btn-outline-success my-2 my-sm-0" (click)="isArmstrong()" type="submit">Check Armstrong Num</button></div>
+                    <span class="about_taital">
+                        <h5 class="about_taital"> <br> <span> Answer is : {{ans}} </span></h5>
+                    </span>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-------------------------- Question 1------------------------------------>
+
+<!-- <div *ngIf="activecurrentQues=='cuberootques'" class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="about_taital"> <span>Calculate Cube Root</span></h3>
+                <p class="about_text"> A cube root of a number x is a number y such that y3 = x.</p>
+                <p class="about_text">
+                    <label>Enter the Number to find its Cube Root :</label>
+                    <input type="number" [(ngModel)]="cuberootnum">
+                </p>
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="cubicRoot()"
+                        type="submit">Submit</button></p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span> Answer is : {{ans}} </span></h5>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="about_taital"> <span>Calculate Cube </span></h3>
+                <p class="about_text"> A cube root of a number x is a number y such that y3 = x.</p>
+                <p class="about_text">
+                    <label>Enter the Number to find its Cube Root :</label>
+                    <input type="number" [(ngModel)]="cubenum">
+                </p>
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="Cube()" type="submit">Submit</button>
+                </p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span> Answer is : {{cube}} </span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-------------------------- Question 2------------------------------------>
+<!-- <div *ngIf="activecurrentQues=='palindromenumberques'" class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="about_taital"> <span>Check Palindrome Number</span></h3>
+                <p class="about_text">A palindrome number is a number that is same after reverse. For example 121,
+                    34543, 343, 131, 48984 are the palindrome numbers.</p>
+                <p class="about_text">
+                    <label>Enter the Number to find whether its Palindrome number or not :</label>
+                    <input type="number" [(ngModel)]="palindronenumber">
+                </p>
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="checkPalindrome()"
+                        type="submit">Submit</button></p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span> Answer is : {{ans}}</span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-------------------------- Question 3------------------------------------>
+<!-- <div *ngIf="activecurrentQues=='quicksortques'" class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="about_taital"> <span>Quick Sort</span></h3>
+                <p class="about_text">Quicksort is the widely used sorting algorithm that makes n log n comparisons in
+                    average case for sorting an array of n elements.This algorithm follows the divide and conquer
+                    approach.</p>
+                <p class="about_text"> Divide and conquer is a technique of breaking down the algorithms into
+                    subproblems, then solving the subproblems, and combining the results back together to solve the
+                    original problem. Check using an example where values are [1, 7, 4, 9, 2, -1, 6] </p>
+                <p class="about_text">Time Complexity : O(n*logn) </p>
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="calculate()" type="submit">Click here
+                        to see the quick sort of following array</button></p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span>Quick Sort : {{test}}</span></h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+
+<!-------------------------- Question 4------------------------------------>
+<!-- <div *ngIf="activecurrentQues=='bubblesortques'" class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="about_taital"> <span>Bubble Sort</span></h3>
+                <p class="about_text">Bubble sort works on the repeatedly swapping of adjacent elements until they are
+                    not in the intended order. It is called bubble sort because the movement of array elements is just
+                    like the movement of air bubbles in the water. Check using an example where values are [1, 7, 4, 9,
+                    2, -1, 6]</p>
+                <p class="about_text"> Time Complexity : O(n log n) </p>
+
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="bblSort()" type="submit">Click here to
+                        see the Bubble sort
+                        of following array</button></p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span>Bubble Sort : {{test}} </span></h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+
+<!-------------------------- Question 5------------------------------------>
+<!-- <div *ngIf="activecurrentQues=='primenumberques'" class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="about_taital"> <span>Check Prime Number</span></h3>
+                <p class="about_text">A whole number greater than 1 that cannot be exactly divided by any whole number
+                    other than itself and 1 (e.g. 2, 3, 5, 7, 11).</p>
+                <p class="about_text">
+                    <label>Enter the Positive Number to find whether its prime number or not :</label>
+                    <input type="number" [(ngModel)]="primenum">
+                </p>
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="primefunc()"
+                        type="submit">Submit</button></p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span> Answer is : {{ans}}</span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-------------------------- Question 6------------------------------------>
+<!-- <div *ngIf="activecurrentQues=='armstrongques'" class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="about_taital"> <span>Check Armstrong Number</span></h3>
+                <p class="about_text">Armstrong number is a number that is equal to the sum of cubes of its digits. For
+                    example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers.</p>
+                <p class="about_text">
+                    <label>Enter the Number to find whether its Armstrong number or not :</label>
+                   <input type="number"  (keyup.enter)="cubicRoot()">
+                </p>
+                <p> <button class="btn btn-outline-success my-2 my-sm-0" (click)="isArmstrong()"
+                        type="submit">Submit</button></p>
+                <div class="col-md-6">
+                    <h5 class="about_taital"> <span> Answer is : {{ans}}</span></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,0 +1,40 @@
+{
+  "quesAnswer" : [
+      {
+        "id":1,
+        "ques":"Cube Of Number",
+        "ans":" A cube  of a number x is a number y such that y3 = x.",
+        "activecurrentQues":"cuberootques"
+      },
+      {
+        "id":2,
+        "ques":"Palindrome Number",
+        "ans":"A palindrome number is a number that is same after reverse. For example 121,34543, 343, 131, 48984 are the palindrome numbers.",
+        "activecurrentQues":"palindromenumberques"
+      },
+      {
+        "id":3,
+        "ques":"Quick Sort",
+        "ans":"Quicksort is the widely used sorting algorithm that makes n log n comparisons in average case for sorting an array of n elements.This algorithm follows the divide and conquer approach.Divide and conquer is a technique of breaking down the algorithms into subproblems, then solving the subproblems, and combining the results back together to solve the original problem. Check using an example where values are  [1, 7, 4, 9, 2, -1, 6]. Time Complexity : O(n*logn)",
+        "activecurrentQues":"quicksortques"
+      },
+      {
+        "id":4,
+        "ques":"Bubble Sort",
+        "ans":"Bubble sort works on the repeatedly swapping of adjacent elements until they are not in the intended order. It is called bubble sort because the movement of array elements is just like the movement of air bubbles in the water. Check using an example where values are [19, 72, -44, -9, 29, -1, 36]",
+        "activecurrentQues":"bubblesortques"
+      },
+      {
+        "id":5,
+        "ques":"Prime Number",
+        "ans":"A whole number greater than 1 that cannot be exactly divided by any whole number other than itself and 1 (e.g. 2, 3, 5, 7, 11).",
+        "activecurrentQues":"primenumberques"
+      },
+      {
+          "id":6,
+          "ques":"Armstrong Number",
+          "ans":"Armstrong number is a number that is equal to the sum of cubes of its digits. For example 0, 1, 153, 370, 371 and 407 are the Armstrong numbers.",
+          "activecurrentQues":"armstrongques"
+        }
+    ]
+  }
